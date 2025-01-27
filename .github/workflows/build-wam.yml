@@ -22,7 +22,7 @@ jobs:
           submodules: recursive
           persist-credentials: false
 
-      - name: setup python3
+      - name: Setup Python3
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
@@ -44,14 +44,14 @@ jobs:
           ./download-iplug-sdks.sh
         shell: bash
 
-      - name: Grant execute permissions for makedist-web.sh
-        run: chmod +x ${{env.PROJECT_NAME}}/scripts/makedist-web.sh
+      - name: List contents of scripts directory
+        run: ls -l ${{env.PROJECT_NAME}}/scripts
         shell: bash
 
       - name: Compile WAM
         run: |
           cd ${{env.PROJECT_NAME}}/scripts
-          ./makedist-web.sh off ${{env.URL}}
+          sh makedist-web.sh off ${{env.URL}}
           
       - name: Upload artifact
         uses: actions/upload-artifact@v4
