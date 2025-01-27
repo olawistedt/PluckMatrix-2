@@ -44,6 +44,10 @@ jobs:
           ./download-iplug-sdks.sh
         shell: bash
 
+      - name: Grant execute permissions for makedist-web.sh
+        run: chmod +x ${{env.PROJECT_NAME}}/scripts/makedist-web.sh
+        shell: bash
+
       - name: Compile WAM
         run: |
           cd ${{env.PROJECT_NAME}}/scripts
