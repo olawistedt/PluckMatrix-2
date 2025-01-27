@@ -45,7 +45,7 @@ jobs:
         shell: bash
 
       - name: List contents of scripts directory
-        run: ls -l ${{env.PROJECT_NAME}}/scripts
+        run: ls -l PluckMatrix/scripts
         shell: bash
 
       - name: Compile WAM
